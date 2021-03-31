@@ -1,0 +1,14 @@
+
+.recommendList.data-v-38cdf3f7{
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	padding-top: 20rpx;
+	background-color: white;
+}
+

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "recommend-list": "/pages/index/childcomponents/recommendList",
+    "recommend-item": "/pages/index/childcomponents/recommendItem",
+    "popular": "/pages/index/childcomponents/popular",
+    "toggle-data": "/pages/index/childcomponents/toggleData"
+  }
+}

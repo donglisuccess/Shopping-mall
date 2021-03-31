@@ -1,0 +1,21 @@
+
+.recommendItem.data-v-2ec87bec{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	width: 188rpx;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+}
+.recommendItem image.data-v-2ec87bec{
+	width: 170rpx;
+	height: 170rpx;
+	text-align: center;
+	padding-left: 9rpx;
+}
+.recommendItem-text.data-v-2ec87bec{
+	text-align: center;
+	font-size: 12px;
+	color:#808080;
+}
+

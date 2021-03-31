@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sort/sort",
+    "pages/search/search",
+    "pages/cart/cart",
+    "pages/self/self"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#d81e06",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/TabBar/shouye.png",
+        "selectedIconPath": "static/TabBar/shouye1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "iconPath": "static/TabBar/class.png",
+        "selectedIconPath": "static/TabBar/class1.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "static/TabBar/u138.png",
+        "selectedIconPath": "static/TabBar/u1381.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/TabBar/gouwuche.png",
+        "selectedIconPath": "static/TabBar/gouwuche1.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "static/TabBar/wode.png",
+        "selectedIconPath": "static/TabBar/wode1.png",
+        "text": "我的 "
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,1 @@
+<view class="content data-v-2d3523f1"><block wx:for="{{toggleData}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="contentItem data-v-2d3523f1"><view data-event-opts="{{[['tap',[['toggleD',[index]]]]]}}" class="{{['currentstyle data-v-2d3523f1',(currentIndex==index)?'setitem':'']}}" bindtap="__e">{{''+item+''}}</view></view></block></view>
