@@ -16,8 +16,15 @@
 		<popular></popular>
 		<!-- 设置分类组件end -->	
 		<!-- 设置切换数据组件 start-->
-		<toggle-data :toggleData="toggleData" @toggleStyle="toggleStyle" :currentIndex="currentIndex"></toggle-data>
+		<toggle-data :toggleData="toggleData" 
+		@toggleStyle="toggleStyle" 
+		:currentIndex="currentIndex" class="toggleData"></toggle-data>
 		<!-- 设置切换数据组件end -->
+		<view class="">
+			<show-item></show-item>
+			<show-item></show-item>
+			<show-item></show-item>
+		</view>
 	</view>
 </template>
 
@@ -27,16 +34,20 @@
 	import recommendItem from "./childcomponents/recommendItem.vue";
 	import popular from "./childcomponents/popular.vue";
 	import toggleData from "./childcomponents/toggleData.vue";
+	import showItem from "./childcomponents/showItem.vue"
 	// 引入外部js文件
-	import {swipper} from "../../network/index.js"
+	import {swipper,showImage} from "../../network/index.js"
 	export default {
 		data() {
 			return {
 				topImage:[],
 				midImage:[],
 				currentIndex: 0,
-				toggleData:["流行","新款","精选"],
-				sendData:['pop','new','sell'],
+				toggleData:["流行","热销","上新"],
+				sendData:['pop','sell',"new"],
+				popData:[],
+				sellData:[],
+				newsData:[],
 			}
 		},
 		components:{
@@ -44,6 +55,7 @@
 			recommendItem,
 			popular,
 			toggleData,
+			showItem,
 		},
 		onLoad() {
 
@@ -58,7 +70,6 @@
 		},
 		onLoad(){
 			swipper().then(value=>{
-				console.log(value)
 				// 抽取轮播图图片
 				var banner = value.data.data.banner.list;
 				for(let item of banner){
@@ -69,7 +80,20 @@
 				console.log(this.midImage);
 			},error=>{
 				console.log(error);
-			})
+			}),
+			// 首页图片数据等
+			showImage('pop',1).then(value=>{
+				this.popData.push(...value.data.list);
+				console.log(this.popData);
+			});
+			showImage("sell",1).then(value=>{
+				this.sellData.push(...value.data.list);
+				console.log(this.sellData);
+			});
+			showImage("new",1).then(value=>{
+				this.newsData.push(...value.data.list);
+				console.log(this.newsData);
+			});
 		}
 	}
 </script>
@@ -86,5 +110,8 @@
 .swiper image {
 	width: 100%;
 	height: 400upx;
+}
+.toggleData{
+	background-color: white;
 }
 </style>

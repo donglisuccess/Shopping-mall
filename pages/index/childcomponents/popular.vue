@@ -26,5 +26,6 @@
 	}
 	.content image{
 		width: 100%;
+		height: 530upx;
 	}
 </style>

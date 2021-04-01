@@ -108,7 +108,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/index/childcomponents/popular":"pages/index/childcomponents/popular","pages/index/childcomponents/recommendItem":"pages/index/childcomponents/recommendItem","pages/index/childcomponents/recommendList":"pages/index/childcomponents/recommendList","pages/index/childcomponents/toggleData":"pages/index/childcomponents/toggleData"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"pages/index/childcomponents/popular":"pages/index/childcomponents/popular","pages/index/childcomponents/recommendItem":"pages/index/childcomponents/recommendItem","pages/index/childcomponents/recommendList":"pages/index/childcomponents/recommendList","pages/index/childcomponents/showItem":"pages/index/childcomponents/showItem","pages/index/childcomponents/toggleData":"pages/index/childcomponents/toggleData"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

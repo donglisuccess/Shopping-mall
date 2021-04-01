@@ -165,22 +165,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _index = __webpack_require__(/*! ../../network/index.js */ 17);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var recommendList = function recommendList() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/recommendList */ "pages/index/childcomponents/recommendList").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/recommendList.vue */ 44));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendItem = function recommendItem() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/recommendItem */ "pages/index/childcomponents/recommendItem").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/recommendItem.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var popular = function popular() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/popular */ "pages/index/childcomponents/popular").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/popular.vue */ 58));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var toggleData = function toggleData() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/toggleData */ "pages/index/childcomponents/toggleData").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/toggleData.vue */ 65));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = _defineProperty({
+
+
+
+
+
+
+
+
+var _index = __webpack_require__(/*! ../../network/index.js */ 77);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var recommendList = function recommendList() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/recommendList */ "pages/index/childcomponents/recommendList").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/recommendList.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommendItem = function recommendItem() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/recommendItem */ "pages/index/childcomponents/recommendItem").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/recommendItem.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var popular = function popular() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/popular */ "pages/index/childcomponents/popular").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/popular.vue */ 58));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var toggleData = function toggleData() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/toggleData */ "pages/index/childcomponents/toggleData").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/toggleData.vue */ 65));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var showItem = function showItem() {__webpack_require__.e(/*! require.ensure | pages/index/childcomponents/showItem */ "pages/index/childcomponents/showItem").then((function () {return resolve(__webpack_require__(/*! ./childcomponents/showItem.vue */ 72));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = _defineProperty({
 
   data: function data() {
     return {
       topImage: [],
       midImage: [],
       currentIndex: 0,
-      toggleData: ["流行", "新款", "精选"],
-      sendData: ['pop', 'new', 'sell'] };
+      toggleData: ["流行", "热销", "上新"],
+      sendData: ['pop', 'sell', "new"],
+      popData: [],
+      sellData: [],
+      newsData: [] };
 
   },
   components: {
     recommendList: recommendList,
     recommendItem: recommendItem,
     popular: popular,
-    toggleData: toggleData },
+    toggleData: toggleData,
+    showItem: showItem },
 
   onLoad: function onLoad() {
 
@@ -195,7 +207,6 @@ var _index = __webpack_require__(/*! ../../network/index.js */ 17);function _def
 
 {var _this = this;
   (0, _index.swipper)().then(function (value) {
-    console.log(value);
     // 抽取轮播图图片
     var banner = value.data.data.banner.list;var _iterator = _createForOfIteratorHelper(
     banner),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
@@ -206,6 +217,19 @@ var _index = __webpack_require__(/*! ../../network/index.js */ 17);function _def
     console.log(_this.midImage);
   }, function (error) {
     console.log(error);
+  }),
+  // 首页图片数据等
+  (0, _index.showImage)('pop', 1).then(function (value) {var _this$popData;
+    (_this$popData = _this.popData).push.apply(_this$popData, _toConsumableArray(value.data.list));
+    console.log(_this.popData);
+  });
+  (0, _index.showImage)("sell", 1).then(function (value) {var _this$sellData;
+    (_this$sellData = _this.sellData).push.apply(_this$sellData, _toConsumableArray(value.data.list));
+    console.log(_this.sellData);
+  });
+  (0, _index.showImage)("new", 1).then(function (value) {var _this$newsData;
+    (_this$newsData = _this.newsData).push.apply(_this$newsData, _toConsumableArray(value.data.list));
+    console.log(_this.newsData);
   });
 });exports.default = _default;
 

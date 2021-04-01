@@ -9,5 +9,6 @@
 }
 .content image.data-v-f52610d4{
 	width: 100%;
+	height: 530rpx;
 }
 

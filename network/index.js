@@ -13,3 +13,23 @@ export function swipper(){
 		reject("数据查询失败")
 	})
 }
+
+// 请求首页的展示图片的数据
+export function showImage(type,page){
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url:"http://152.136.185.210:7878/api/m5/home/data",
+			data:{
+				type,
+				page
+			},
+			success:(res)=>{
+				if(res.statusCode == 200){
+					resolve(res.data);
+				}
+			}
+		})
+	},error=>{
+		console.log("查询数据失败")
+	})
+}
