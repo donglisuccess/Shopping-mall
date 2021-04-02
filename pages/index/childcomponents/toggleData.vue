@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view  v-for="(item,index) in toggleData" :key="index" class="contentItem">
-			<view :class="{setitem:currentIndex == index}" @click="toggleD(index)" class="currentstyle">
+			<view :class="{setitem:current == index}" @click="toggleD(index)" class="currentstyle">
 				{{item}}
 			</view>
 		</view>
@@ -13,7 +13,7 @@
 		name:"toggleData",
 		data(){
 			return {
-				
+				current:this.currentIndex
 			}
 		},
 		props:{
@@ -30,7 +30,7 @@
 		},
 		methods:{
 			toggleD(index){
-				this.currentIndex = index;
+				this.current = index;
 				this.$emit("toggleStyle",index);
 			}
 		}

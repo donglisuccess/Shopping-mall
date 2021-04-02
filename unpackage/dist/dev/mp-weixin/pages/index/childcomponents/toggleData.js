@@ -128,8 +128,8 @@ var _default2 =
 {
   name: "toggleData",
   data: function data() {
-    return {};
-
+    return {
+      current: this.currentIndex };
 
   },
   props: {
@@ -146,7 +146,7 @@ var _default2 =
 
   methods: {
     toggleD: function toggleD(index) {
-      this.currentIndex = index;
+      this.current = index;
       this.$emit("toggleStyle", index);
     } } };exports.default = _default2;
 

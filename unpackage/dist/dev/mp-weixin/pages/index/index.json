@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "首页",
   "navigationStyle": "custom",
+  "onReachBottomDistance": 50,
   "usingComponents": {
     "recommend-list": "/pages/index/childcomponents/recommendList",
     "recommend-item": "/pages/index/childcomponents/recommendItem",

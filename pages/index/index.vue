@@ -18,13 +18,13 @@
 		<!-- 设置切换数据组件 start-->
 		<toggle-data :toggleData="toggleData" 
 		@toggleStyle="toggleStyle" 
-		:currentIndex="currentIndex" class="toggleData"></toggle-data>
+		:currentIndex="currentIndex" class="toggleData" ref="sss"></toggle-data>
 		<!-- 设置切换数据组件end -->
-		<view class="">
-			<show-item></show-item>
-			<show-item></show-item>
-			<show-item></show-item>
+		<!-- 将展示pop,sell,news,start -->
+		<view class="showImageAll">
+			<show-item v-for="(item,index) in nowData" :key="index" :sendImagedata="item" @click.native="clickTodetail(item)"></show-item>
 		</view>
+		<!-- 展示pop，sell,new，end -->
 	</view>
 </template>
 
@@ -48,6 +48,11 @@
 				popData:[],
 				sellData:[],
 				newsData:[],
+				currentData:[],
+				nowData:[],
+				afterIndex:0,// 这里是后来切换的数据index
+				currentPage:[2,2,2], //这里存放当前的请求到的页数,
+				toggleSpeData:true,
 			}
 		},
 		components:{
@@ -57,18 +62,23 @@
 			toggleData,
 			showItem,
 		},
-		onLoad() {
-
-		},
 		activated(){
 			
 		},
 		methods: {
 			toggleStyle(index){
-				console.log(index)
+				this.afterIndex = index;
+				this.nowData = this.currentData[index];
+			},
+			clickTodetail(item){
+				uni.navigateTo({
+					url:"../detail/detail?iid=" + item.iid
+				})
 			}
 		},
 		onLoad(){
+			this.currentData = [this.popData,this.sellData,this.newsData];
+			this.nowData = this.currentData[0];
 			swipper().then(value=>{
 				// 抽取轮播图图片
 				var banner = value.data.data.banner.list;
@@ -84,17 +94,38 @@
 			// 首页图片数据等
 			showImage('pop',1).then(value=>{
 				this.popData.push(...value.data.list);
-				console.log(this.popData);
 			});
 			showImage("sell",1).then(value=>{
 				this.sellData.push(...value.data.list);
-				console.log(this.sellData);
 			});
 			showImage("new",1).then(value=>{
 				this.newsData.push(...value.data.list);
-				console.log(this.newsData);
 			});
-		}
+		},
+		onReachBottom(){
+			uni.showToast({
+				title:"正在加载数据...",
+			    icon:"loading",
+				duration: 1000,
+			    success:()=>{
+					showImage(this.sendData[this.afterIndex],this.currentPage[this.afterIndex]).then(value=>{
+						this.currentData[this.afterIndex].push(...value.data.list);
+						this.currentPage[this.afterIndex] += 1;
+						console.log(this.$refs.sss);
+					},error=>{
+						console.log("加载失败")
+					})
+				}
+			});
+		},
+		// onPageScroll(e){
+		// 	if(e.scrollTop >= 596){
+		// 		this.toggleSpeData = false;
+		// 	}else{
+		// 		this.toggleSpeData = true;
+		// 	}
+		// 	console.log(e.scrollTop)
+		// }
 	}
 </script>
 
@@ -113,5 +144,15 @@
 }
 .toggleData{
 	background-color: white;
+}
+.showImageAll{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	background-color: white;
+}
+.toggleSpe{
+	
 }
 </style>

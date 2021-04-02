@@ -14,4 +14,21 @@
 .toggleData.data-v-57280228{
 	background-color: white;
 }
+.showImageAll.data-v-57280228{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: space-evenly;
+	-webkit-justify-content: space-evenly;
+	        justify-content: space-evenly;
+	background-color: white;
+}
+.toggleSpe.data-v-57280228{
+}
 

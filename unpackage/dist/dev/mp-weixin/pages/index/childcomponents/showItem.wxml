@@ -1,1 +1,1 @@
-<view class="data-v-07bacc43">大家好</view>
+<view class="content data-v-07bacc43"><view class="data-v-07bacc43"><image src="{{sendImagedata.showLarge.img}}" mode=" aspectFit" class="data-v-07bacc43"></image><view class="goodsTitle data-v-07bacc43">{{''+sendImagedata.title+''}}</view><view class="praise data-v-07bacc43"><view class="price data-v-07bacc43">{{''+("￥"+sendImagedata.price)+''}}</view><view class="fans data-v-07bacc43">{{''+sendImagedata.cfav+''}}</view></view></view></view>

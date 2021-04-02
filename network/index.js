@@ -33,3 +33,22 @@ export function showImage(type,page){
 		console.log("查询数据失败")
 	})
 }
+
+// 根据每一个iid请求数据
+export function requestByiid(iid){
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url:"http://152.136.185.210:7878/api/m5/detail",
+			data:{
+				iid,
+			},
+			success:(res)=>{
+				if(res.statusCode == 200){
+					resolve(res.data);
+				}
+			}
+		})
+	},error=>{
+		reject("请求数据失败")
+	})
+}

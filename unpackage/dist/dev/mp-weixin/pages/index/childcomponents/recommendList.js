@@ -1,5 +1,46 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/childcomponents/recommendList"],{
 
+/***/ 44:
+/*!*********************************************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/pages/index/childcomponents/recommendList.vue ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./recommendList.vue?vue&type=template&id=38cdf3f7&scoped=true& */ 45);
+/* harmony import */ var _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recommendList.vue?vue&type=script&lang=js& */ 47);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _recommendList_vue_vue_type_style_index_0_id_38cdf3f7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recommendList.vue?vue&type=style&index=0&id=38cdf3f7&scoped=true&lang=css& */ 49);
+/* harmony import */ var _E_HBuilderX_2_7_14_20200618_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_E_HBuilderX_2_7_14_20200618_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "38cdf3f7",
+  null,
+  false,
+  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "pages/index/childcomponents/recommendList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ 45:
 /*!****************************************************************************************************************************************!*\
   !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/pages/index/childcomponents/recommendList.vue?vue&type=template&id=38cdf3f7&scoped=true& ***!
@@ -117,47 +158,6 @@ __webpack_require__.r(__webpack_exports__);
     if(false) { var cssReload; }
   
 
-/***/ }),
-
-/***/ 78:
-/*!*********************************************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/pages/index/childcomponents/recommendList.vue ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./recommendList.vue?vue&type=template&id=38cdf3f7&scoped=true& */ 45);
-/* harmony import */ var _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recommendList.vue?vue&type=script&lang=js& */ 47);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _recommendList_vue_vue_type_style_index_0_id_38cdf3f7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recommendList.vue?vue&type=style&index=0&id=38cdf3f7&scoped=true&lang=css& */ 49);
-/* harmony import */ var _E_HBuilderX_2_7_14_20200618_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
-
-var renderjs
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_E_HBuilderX_2_7_14_20200618_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _recommendList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "38cdf3f7",
-  null,
-  false,
-  _recommendList_vue_vue_type_template_id_38cdf3f7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["components"],
-  renderjs
-)
-
-component.options.__file = "pages/index/childcomponents/recommendList.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
 /***/ })
 
 }]);
@@ -166,7 +166,7 @@ component.options.__file = "pages/index/childcomponents/recommendList.vue"
     'pages/index/childcomponents/recommendList-create-component',
     {
         'pages/index/childcomponents/recommendList-create-component':(function(module, exports, __webpack_require__){
-            __webpack_require__('1')['createComponent'](__webpack_require__(78))
+            __webpack_require__('1')['createComponent'](__webpack_require__(44))
         })
     },
     [['pages/index/childcomponents/recommendList-create-component']]
