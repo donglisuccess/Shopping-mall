@@ -1,0 +1,11 @@
+
+.detail-title.data-v-686aaff0{
+	text-align: left;
+	padding-left:20rpx;
+	padding-bottom: 20rpx;
+	color: #808080;
+}
+.detail-image image.data-v-686aaff0{
+	width: 100%;
+}
+

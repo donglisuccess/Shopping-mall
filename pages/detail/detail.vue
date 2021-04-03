@@ -1,8 +1,18 @@
 <template>
 	<view>
-		<navigator url="../index/index" open-type="switchTab" class="backToIndex">
-			<image src="../../static/fanhui.png" mode=""></image>
-		</navigator>
+		<!-- 头部导航start -->
+		<tab-bar class="tabBar">
+			<navigator url="../index/index" open-type="switchTab" slot="left">
+				<image src="../../static/fanhui.png" mode="" class="tabBar-image"></image>
+			</navigator>
+			<view class="tabBar-center" slot="center">
+				<view class="goods">商品</view>
+				<view class="">参数</view>
+				<view class="">评论</view>
+				<view class="">推荐</view>
+			</view>
+		</tab-bar>
+		<!-- 头部导航end -->
 		<!-- 展示顶部图片start -->
 		 <swiper class="swiper" indicator-dots=true autoplay=true interval="3000" duration="1000">
 		    <swiper-item v-for="(item,index) in topImage" :key="index">
@@ -10,11 +20,45 @@
 		    </swiper-item>
 		</swiper>
 		<!-- 展示顶部图片end -->
+		<!-- 展示衣服信息 start -->
+		<cloth-info :clothes="clothes"></cloth-info>
+		<!-- 展示衣服信息 end -->
+		<!-- 设置店铺信息start -->
+		<shop-info :shopInfoma="shopInfoma" @entryShop="entryShop"></shop-info>
+		<!-- 设置店铺信息end -->
+		<!-- 这里展示细节图片start -->
+		<detail-img :detailimg="detailimg"></detail-img>
+		<!-- 这里展示细节图片end -->
+		<!-- 这里展示参数start -->
+		<params :paramsInfo="paramsInfo"></params>
+		<!-- 这里展示参数end -->
+		<!-- 这里是用户评价start -->
+		<assess :assessInfo="assessInfo"></assess>
+		<!-- 这里是用户评价end -->
+		<!-- 这里展示的是推荐start -->
+		<view class="recommendText">
+			精选推荐
+		</view>
+		<view class="recommend">
+			<show-item v-for="(item,index) in recommendList" 
+			:key="index" 
+			:sendImagedata="item" class="showItem"></show-item>
+		</view>
+		<!-- 这里展示用户推荐end -->
 	</view>
 </template>
 
 <script>
-	import {requestByiid} from "../../network/index.js"; 
+	// 这里是导入组件
+	import tabBar from "../../components/tabBar.vue"
+	import clothInfo from "./childComponents/clothInfo.vue";
+	import shopInfo from "./childComponents/shopInfo.vue";
+	import detailImg from "./childComponents/detailImg.vue";
+	import params from "./childComponents/params.vue";
+	import assess from "./childComponents/assess.vue";
+	import showItem from "../index/childcomponents/showItem.vue";
+	// 这里是导入js文件
+	import {requestByiid,clothInfomation,shopInfomation,detailImage,clothParams,assessItem,recommend} from "../../network/index.js"; 
 	export default {
 		name:"detail",
 		data() {
@@ -22,10 +66,27 @@
 				iid:"",
 				data:{},
 				topImage:[],
+				clothes:{},  //这里是商品信息
+				shopInfoma:{},// 这里存放的是店铺的数据
+				detailimg:[],
+				paramsInfo:{}, //这里存放的是商品参数信息
+				assessInfo:{},  //这里是用户评价信息
+				recommendList:[],
 			}
 		},
+		components:{
+			tabBar,
+			clothInfo,
+			shopInfo,
+			detailImg,
+			params,
+			assess,
+			showItem,
+		},
 		methods: {
-			
+			entryShop(url){
+				console.log(url)
+			}
 		},
 		onLoad(e){
 			this.iid = e.iid;
@@ -33,6 +94,21 @@
 				this.data = value;
 			}).then(value=>{
 				this.topImage = this.data.result.itemInfo.topImages;
+				var result = this.data.result;
+				// console.log(result)
+				this.clothes = new clothInfomation(result);
+				this.shopInfoma = new shopInfomation(result);
+				this.detailimg = new detailImage(result).image;
+				// console.log(result.itemParams)
+				this.paramsInfo = new clothParams(result.itemParams);
+				this.assessInfo = new assessItem(result.rate);
+				// console.log(this.assessInfo);
+			})
+			recommend().then(value=>{
+				this.recommendList = value.data.list;
+				console.log(this.recommendList);
+			},error=>{
+				console.log("失败")
 			})
 		}
 	}
@@ -41,11 +117,11 @@
 <style>
 .swiper{
 	width: 100%;
-	height: 550upx;
+	height: 600upx;
 }
 .swiper image{
 	width: 100%;
-	height: 550upx;
+	height: 600upx;
 }
 .backToIndex{
 	width: 80upx;
@@ -58,5 +134,36 @@
 .backToIndex image{
 	width: 80upx;
 	height: 80upx;
+}
+.tabBar-image{
+	width: 60upx;
+	height: 60upx;
+}
+.tabBar-center{
+	display: flex;
+	background-color: white;
+}
+.tabBar-center view{
+	flex: 1;
+	text-align: center;
+	font-size: 17px;
+}
+.tabBar{
+	height: 80upx;
+}
+.goods{
+	color:#ff8198;
+}
+.recommend{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin-top: 30upx;
+}
+.recommendText{
+	color:#ff8198;
+	padding-left: 20upx;
+	margin-top: 30upx;
 }
 </style>

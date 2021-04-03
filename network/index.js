@@ -52,3 +52,69 @@ export function requestByiid(iid){
 		reject("请求数据失败")
 	})
 }
+
+// 这里请求detail页面中的衣服描述数据
+export class clothInfomation{
+	constructor(result) {
+	    this.title = result.itemInfo.title;
+		this.price = result.itemInfo.price;
+		this.prePrice = result.itemInfo.oldPrice;
+		this.discountDesc = result.itemInfo.discountDesc;
+		this.columns = result.columns;
+		this.services = result.shopInfo.services;
+	}
+}
+
+// 这里获取detail店铺中的数据
+export class shopInfomation{
+	constructor(result) {
+	    this.shopLogo = result.shopInfo.shopLogo;
+		this.name = result.shopInfo.name;
+		this.shopUrl = result.shopInfo.shopUrl;
+		this.cGoods = result.shopInfo.cGoods;
+		this.cSells = result.shopInfo.cSells;
+		this.score = result.shopInfo.score;
+	}
+}
+
+// 这里获取detailImage
+export class detailImage{
+	constructor(result) {
+	    this.image = result.detailInfo.detailImage;
+	}
+}
+
+// 这里设置相关参数
+export class clothParams{
+	constructor(params) {
+	    this.set = params.info.set;
+		this.tables = params.rule.tables;
+	}
+}
+
+// 这里设置评价信息
+export class assessItem{
+	constructor(rate) {
+	    this.avatar = rate.list[0].user.avatar;
+		this.uname = rate.list[0].user.uname;
+		this.content = rate.list[0].content;
+		this.created = rate.list[0].created;
+		this.style = rate.list[0].style;
+		this.images = rate.list[0].images;
+	}
+}
+
+
+// 导出推荐数据
+export function recommend(){
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url:"http://152.136.185.210:7878/api/m5/recommend",
+			success:(res)=>{
+				if(res.statusCode == 200){
+					resolve(res.data);
+				}
+			}
+		})
+	})
+}

@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view>
-			<image :src="sendImagedata.showLarge.img" mode=" aspectFit"></image>
+			<image :src="showImage" mode=" aspectFit"></image>
 			<view class="goodsTitle">
 				{{sendImagedata.title}}
 			</view>
@@ -35,6 +35,16 @@
 		},
 		created(){
 			
+		},
+		computed:{
+			showImage(){
+				if(this.sendImagedata.showLarge)
+				{
+					return this.sendImagedata.showLarge.img 
+				}else{
+					return this.sendImagedata.image;
+				}
+			}
 		}
 	}
 </script>

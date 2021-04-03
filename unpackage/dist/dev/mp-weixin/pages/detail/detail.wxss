@@ -1,11 +1,11 @@
 
 .swiper{
 	width: 100%;
-	height: 550rpx;
+	height: 600rpx;
 }
 .swiper image{
 	width: 100%;
-	height: 550rpx;
+	height: 600rpx;
 }
 .backToIndex{
 	width: 80rpx;
@@ -18,5 +18,48 @@
 .backToIndex image{
 	width: 80rpx;
 	height: 80rpx;
+}
+.tabBar-image{
+	width: 60rpx;
+	height: 60rpx;
+}
+.tabBar-center{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	background-color: white;
+}
+.tabBar-center view{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	text-align: center;
+	font-size: 17px;
+}
+.tabBar{
+	height: 80rpx;
+}
+.goods{
+	color:#ff8198;
+}
+.recommend{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: space-evenly;
+	-webkit-justify-content: space-evenly;
+	        justify-content: space-evenly;
+	margin-top: 30rpx;
+}
+.recommendText{
+	color:#ff8198;
+	padding-left: 20rpx;
+	margin-top: 30rpx;
 }
 

@@ -87,7 +87,6 @@
 				}
 				// 设置设置中间展示的图片
 				this.midImage = value.data.data.recommend.list;
-				console.log(this.midImage);
 			},error=>{
 				console.log(error);
 			}),
@@ -111,7 +110,7 @@
 					showImage(this.sendData[this.afterIndex],this.currentPage[this.afterIndex]).then(value=>{
 						this.currentData[this.afterIndex].push(...value.data.list);
 						this.currentPage[this.afterIndex] += 1;
-						console.log(this.$refs.sss);
+						// console.log(this.$refs.sss);
 					},error=>{
 						console.log("加载失败")
 					})
