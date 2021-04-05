@@ -48,6 +48,9 @@
 		<!-- 设置请求购物车start -->
 		<add-cart></add-cart>
 		<!-- 设置请求购物车end -->
+		<!-- toast start -->
+		
+		<!-- toast end -->
 	</view>
 </template>
 
@@ -61,6 +64,7 @@
 	import assess from "./childComponents/assess.vue";
 	import showItem from "../index/childcomponents/showItem.vue";
 	import addCart from "./childComponents/addCart.vue";
+	
 	// 这里是导入js文件
 	import {requestByiid,clothInfomation,shopInfomation,detailImage,clothParams,assessItem,recommend} from "../../network/index.js"; 
 	export default {
@@ -123,7 +127,7 @@
 .swiper{
 	width: 100%;
 	height: 600upx;
-	margin-top: 72px;
+	margin-top: 65px;
 }
 .swiper image{
 	width: 100%;

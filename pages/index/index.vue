@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<back-top v-show="backShow"></back-top>
 		<!-- 首页轮播图 start -->
 		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="500">
             <swiper-item v-for="(item,index) in topImage" :key="index">
@@ -35,6 +36,7 @@
 	import popular from "./childcomponents/popular.vue";
 	import toggleData from "./childcomponents/toggleData.vue";
 	import showItem from "./childcomponents/showItem.vue"
+	import backTop from "../../components/backTop.vue";
 	// 引入外部js文件
 	import {swipper,showImage} from "../../network/index.js"
 	export default {
@@ -53,6 +55,7 @@
 				afterIndex:0,// 这里是后来切换的数据index
 				currentPage:[2,2,2], //这里存放当前的请求到的页数,
 				toggleSpeData:true,
+				backShow:true,
 			}
 		},
 		components:{
@@ -61,6 +64,7 @@
 			popular,
 			toggleData,
 			showItem,
+			backTop,
 		},
 		activated(){
 			
@@ -74,6 +78,9 @@
 				uni.navigateTo({
 					url:"../detail/detail?iid=" + item.iid
 				})
+			},
+			scrollPosition(e){
+				console.log(e);
 			}
 		},
 		onLoad(){
@@ -100,6 +107,7 @@
 			showImage("new",1).then(value=>{
 				this.newsData.push(...value.data.list);
 			});
+			
 		},
 		onReachBottom(){
 			uni.showToast({

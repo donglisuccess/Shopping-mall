@@ -21,7 +21,7 @@
 			</view>
 		</view>
 		<view class="right">
-			<view class="addCarts">
+			<view class="addCarts" @click="addCart">
 				加入购物车
 			</view>
 			<view class="payOut">
@@ -37,6 +37,11 @@
 		data(){
 			return {
 				
+			}
+		},
+		methods:{
+			addCart(){
+				this.$toast.show("这里是toast",2000);
 			}
 		}
 	}
