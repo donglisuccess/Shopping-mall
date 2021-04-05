@@ -8,6 +8,7 @@
     "detail-img": "/pages/detail/childComponents/detailImg",
     "params": "/pages/detail/childComponents/params",
     "assess": "/pages/detail/childComponents/assess",
-    "show-item": "/pages/index/childcomponents/showItem"
+    "show-item": "/pages/index/childcomponents/showItem",
+    "add-cart": "/pages/detail/childComponents/addCart"
   }
 }

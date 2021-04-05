@@ -30,7 +30,7 @@
 		<detail-img :detailimg="detailimg"></detail-img>
 		<!-- 这里展示细节图片end -->
 		<!-- 这里展示参数start -->
-		<params :paramsInfo="paramsInfo"></params>
+		<params v-if="paramsInfo.tables" :paramsInfo="paramsInfo"></params>
 		<!-- 这里展示参数end -->
 		<!-- 这里是用户评价start -->
 		<assess :assessInfo="assessInfo"></assess>
@@ -45,6 +45,9 @@
 			:sendImagedata="item" class="showItem"></show-item>
 		</view>
 		<!-- 这里展示用户推荐end -->
+		<!-- 设置请求购物车start -->
+		<add-cart></add-cart>
+		<!-- 设置请求购物车end -->
 	</view>
 </template>
 
@@ -57,6 +60,7 @@
 	import params from "./childComponents/params.vue";
 	import assess from "./childComponents/assess.vue";
 	import showItem from "../index/childcomponents/showItem.vue";
+	import addCart from "./childComponents/addCart.vue";
 	// 这里是导入js文件
 	import {requestByiid,clothInfomation,shopInfomation,detailImage,clothParams,assessItem,recommend} from "../../network/index.js"; 
 	export default {
@@ -82,6 +86,7 @@
 			params,
 			assess,
 			showItem,
+			addCart,
 		},
 		methods: {
 			entryShop(url){
@@ -118,6 +123,7 @@
 .swiper{
 	width: 100%;
 	height: 600upx;
+	margin-top: 72px;
 }
 .swiper image{
 	width: 100%;
@@ -150,6 +156,13 @@
 }
 .tabBar{
 	height: 80upx;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	z-index: 10;
+	background-color: white;
+	box-shadow: 0px 0px 10upx #C0C0C0;
 }
 .goods{
 	color:#ff8198;
