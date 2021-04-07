@@ -29,6 +29,7 @@
 	box-shadow: 0px 0px 5px #C0C0C0;
 	align-items: center;
 	padding-top: 50upx;
+	background-color: white;
 }
 .left{
 	width: 150upx;

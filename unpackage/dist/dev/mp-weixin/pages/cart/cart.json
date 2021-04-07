@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "购物车",
-  "usingComponents": {}
+  "usingComponents": {
+    "product-item": "/pages/cart/childComponent/productItem"
+  }
 }

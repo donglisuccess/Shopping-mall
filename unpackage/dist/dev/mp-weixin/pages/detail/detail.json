@@ -2,6 +2,7 @@
   "navigationBarTitleText": "详情页",
   "navigationStyle": "custom",
   "usingComponents": {
+    "toast": "/components/Toast/Toast",
     "tab-bar": "/components/tabBar",
     "cloth-info": "/pages/detail/childComponents/clothInfo",
     "shop-info": "/pages/detail/childComponents/shopInfo",

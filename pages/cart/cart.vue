@@ -1,24 +1,25 @@
 <template>
 	<view class="content">
-		购物车
+		<product-item v-for="(item,index) in cartList" :key="index" :cartItem="item"></product-item>
 	</view>
 </template>
 
 <script>
+	import productItem from "./childComponent/productItem.vue";
 	export default {
 		data() {
 			return {
-				
+				cartList:[], 
 			}
 		},
-		onLoad() {
-
-		},
-		activated(){
-			
+		components:{
+			productItem
 		},
 		methods: {
-
+			
+		},
+		onLoad(){
+			this.cartList = this.$store.state.cartList;
 		}
 	}
 </script>

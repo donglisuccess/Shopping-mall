@@ -1,0 +1,12 @@
+
+.content.data-v-0a370294{
+	position: fixed;
+	padding:15rpx 30rpx;
+	top: 900rpx;
+	background-color: rgba(0,0,0,0.8);
+	color: white;
+	z-index: 999;
+	border-radius: 15rpx;
+	margin-left: 210rpx;
+}
+

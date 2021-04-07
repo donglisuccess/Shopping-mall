@@ -118,21 +118,12 @@
 					showImage(this.sendData[this.afterIndex],this.currentPage[this.afterIndex]).then(value=>{
 						this.currentData[this.afterIndex].push(...value.data.list);
 						this.currentPage[this.afterIndex] += 1;
-						// console.log(this.$refs.sss);
 					},error=>{
 						console.log("加载失败")
 					})
 				}
 			});
 		},
-		// onPageScroll(e){
-		// 	if(e.scrollTop >= 596){
-		// 		this.toggleSpeData = false;
-		// 	}else{
-		// 		this.toggleSpeData = true;
-		// 	}
-		// 	console.log(e.scrollTop)
-		// }
 	}
 </script>
 

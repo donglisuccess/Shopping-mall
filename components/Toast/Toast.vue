@@ -1,6 +1,6 @@
 <template>
-	<view class="content" v-show="isShow">
-		{{message}}
+	<view class="content" v-show="toastShow">
+		{{toastSomeThings}}
 	</view>
 </template>
 
@@ -9,18 +9,17 @@
 		name:"Toast",
 		data(){
 			return {
-				message:"",
 				isShow:false,
 			}
 		},
-		methods:{
-			show(message,during){
-				this.message = message;
-				this.isShow = true;
-				setTimeout(()=>{
-					this.isShow = false;
-					this.message = "";
-				},during);
+		props:{
+			toastSomeThings:{
+				type:String,
+				default:"",
+			},
+			toastShow:{
+				type:Boolean,
+				default:false,
 			}
 		}
 	}
@@ -30,7 +29,7 @@
 .content{
 	position: fixed;
 	padding:15upx 30upx;
-	top: 500upx;
+	top: 900upx;
 	background-color: rgba(0,0,0,0.8);
 	color: white;
 	z-index: 999;

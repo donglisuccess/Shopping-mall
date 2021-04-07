@@ -46,10 +46,10 @@
 		</view>
 		<!-- 这里展示用户推荐end -->
 		<!-- 设置请求购物车start -->
-		<add-cart></add-cart>
+		<add-cart :cart-item="cartItem" @toastInfo="toastInfo"></add-cart>
 		<!-- 设置请求购物车end -->
 		<!-- toast start -->
-		
+		<Toast :toastSomeThings="toastSomeThings" :toastShow="toastShow"></Toast>
 		<!-- toast end -->
 	</view>
 </template>
@@ -64,9 +64,11 @@
 	import assess from "./childComponents/assess.vue";
 	import showItem from "../index/childcomponents/showItem.vue";
 	import addCart from "./childComponents/addCart.vue";
+	import Toast from "../../components/Toast/Toast.vue";
 	
 	// 这里是导入js文件
-	import {requestByiid,clothInfomation,shopInfomation,detailImage,clothParams,assessItem,recommend} from "../../network/index.js"; 
+	import {requestByiid,clothInfomation,shopInfomation,
+	detailImage,clothParams,assessItem,recommend,addCartInfo} from "../../network/index.js"; 
 	export default {
 		name:"detail",
 		data() {
@@ -80,6 +82,9 @@
 				paramsInfo:{}, //这里存放的是商品参数信息
 				assessInfo:{},  //这里是用户评价信息
 				recommendList:[],
+				cartItem:{},//保存添加购物车所需要的信息
+				toastSomeThings:"",
+				toastShow:false,
 			}
 		},
 		components:{
@@ -91,10 +96,18 @@
 			assess,
 			showItem,
 			addCart,
+			Toast,
 		},
 		methods: {
 			entryShop(url){
 				console.log(url)
+			},
+			toastInfo(value){
+				this.toastSomeThings = value;
+				this.toastShow = true;
+				setTimeout(()=>{
+					this.toastShow = false;
+				},2000);
 			}
 		},
 		onLoad(e){
@@ -104,7 +117,7 @@
 			}).then(value=>{
 				this.topImage = this.data.result.itemInfo.topImages;
 				var result = this.data.result;
-				// console.log(result)
+				console.log(result)
 				this.clothes = new clothInfomation(result);
 				this.shopInfoma = new shopInfomation(result);
 				this.detailimg = new detailImage(result).image;
@@ -112,6 +125,8 @@
 				this.paramsInfo = new clothParams(result.itemParams);
 				this.assessInfo = new assessItem(result.rate);
 				// console.log(this.assessInfo);
+				this.cartItem = new addCartInfo(result);
+				// console.log(this.addCart);
 			})
 			recommend().then(value=>{
 				this.recommendList = value.data.list;

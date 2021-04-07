@@ -41,8 +41,21 @@
 		},
 		methods:{
 			addCart(){
-				this.$toast.show("这里是toast",2000);
+				this.$store.dispatch("addOneCloth",this.cartItem).then(value=>{
+					this.$emit("toastInfo",value);
+				})
 			}
+		},
+		props:{
+			cartItem:{
+				type:Object,
+				default(){
+					return {};
+				}
+			}
+		},
+		components:{
+			
 		}
 	}
 </script>

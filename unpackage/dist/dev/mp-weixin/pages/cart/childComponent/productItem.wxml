@@ -1,0 +1,1 @@
+<view class="content data-v-eafbc78c"><view class="left data-v-eafbc78c"></view><view class="right data-v-eafbc78c"><image src="{{cartItem.image}}" mode class="data-v-eafbc78c"></image></view></view>

@@ -2,7 +2,7 @@
 export function swipper(){
 	return new Promise((resolve,reject)=>{
 		uni.request({
-		    url: 'http://123.207.32.32:8000/home/multidata', //仅为示例，并非真实接口地址。
+		    url: 'http://123.207.32.32:8000/home/multidata', 
 		    success: (res) => {
 		        if(res.statusCode =="200"){
 					resolve(res);
@@ -117,4 +117,15 @@ export function recommend(){
 			}
 		})
 	})
+}
+
+// 这里导出的是需要添加到加入购物车的信息
+export class addCartInfo{
+	constructor(result) {
+	    this.image = result.itemInfo.topImages[0];
+		this.iid = result.itemInfo.iid;
+		this.title = result.itemInfo.title;
+		this.price = result.itemInfo.lowNowPrice;
+		this.name = result.shopInfo.name;
+	}
 }

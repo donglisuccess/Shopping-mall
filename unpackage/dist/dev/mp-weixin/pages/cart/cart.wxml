@@ -1,1 +1,1 @@
-<view class="content">购物车</view>
+<view class="content"><block wx:for="{{cartList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><product-item vue-id="{{'1775f8c0-1-'+index}}" cartItem="{{item}}" bind:__l="__l"></product-item></block></view>
