@@ -30,6 +30,11 @@
 	align-items: center;
 	padding-top: 50upx;
 	background-color: white;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	z-index: 1;
 }
 .left{
 	width: 150upx;
