@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "top-header": "/pages/accessRecord/childComponent/topHeader",
+    "history-item": "/pages/accessRecord/childComponent/historyItem"
+  }
+}

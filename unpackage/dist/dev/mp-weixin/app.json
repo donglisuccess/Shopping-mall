@@ -5,7 +5,8 @@
     "pages/search/search",
     "pages/cart/cart",
     "pages/self/self",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/accessRecord/accessRecord"
   ],
   "subPackages": [],
   "window": {
@@ -52,5 +53,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

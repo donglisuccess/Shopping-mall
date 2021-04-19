@@ -129,3 +129,14 @@ export class addCartInfo{
 		this.name = result.shopInfo.name;
 	}
 }
+
+
+// 设置浏览记录
+export class historyRecord{
+	constructor(result) {
+	    this.image = result.itemInfo.topImages[0];
+		this.price = result.itemInfo.price;
+		this.title = result.itemInfo.title;
+		this.iid = result.itemInfo.iid;
+	}
+}

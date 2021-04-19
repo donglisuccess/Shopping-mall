@@ -11,7 +11,7 @@
 		{
 			"path": "pages/sort/sort",
 			"style": {
-				"navigationBarTitleText": "分类页面"
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -29,13 +29,19 @@
 		{
 			"path": "pages/self/self",  
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationStyle":"custom"
 			}
 		}
         ,{
             "path" : "pages/detail/detail",
             "style" : {
 				"navigationBarTitleText": "详情页",
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/accessRecord/accessRecord",
+            "style" : {
 				"navigationStyle":"custom"
 			}
         }

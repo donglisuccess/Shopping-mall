@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sort-bottom-goods": "/pages/sort/childComponents/sortBottomGoods"
+  }
+}

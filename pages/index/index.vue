@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-		<back-top v-show="backShow"></back-top>
 		<!-- 首页轮播图 start -->
 		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="500">
             <swiper-item v-for="(item,index) in topImage" :key="index">

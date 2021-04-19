@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1696,40 +1696,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 136:
-/*!***************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/common/utils.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.formatDate = formatDate;function formatDate(date, fmt) {
-  if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-  }
-  var o = {
-    'M+': date.getMonth() + 1,
-    'd+': date.getDate(),
-    'h+': date.getHours(),
-    'm+': date.getMinutes(),
-    's+': date.getSeconds() };
-
-  for (var k in o) {
-    if (new RegExp("(".concat(k, ")")).test(fmt)) {
-      var str = o[k] + '';
-      fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? str : padLeftZero(str));
-    }
-  }
-  return fmt;
-};
-
-function padLeftZero(str) {
-  return ('00' + str).substr(str.length);
-};
-
-/***/ }),
-
 /***/ 19:
 /*!****************************************************************!*\
   !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/index.js ***!
@@ -1738,7 +1704,7 @@ function padLeftZero(str) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.swipper = swipper;exports.showImage = showImage;exports.requestByiid = requestByiid;exports.recommend = recommend;exports.addCartInfo = exports.assessItem = exports.clothParams = exports.detailImage = exports.shopInfomation = exports.clothInfomation = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}} // 这里是用来发送请求的文件
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.swipper = swipper;exports.showImage = showImage;exports.requestByiid = requestByiid;exports.recommend = recommend;exports.historyRecord = exports.addCartInfo = exports.assessItem = exports.clothParams = exports.detailImage = exports.shopInfomation = exports.clothInfomation = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}} // 这里是用来发送请求的文件
 function swipper() {
   return new Promise(function (resolve, reject) {
     uni.request({
@@ -1867,7 +1833,18 @@ function addCartInfo(result) {_classCallCheck(this, addCartInfo);
   this.title = result.itemInfo.title;
   this.price = result.itemInfo.lowNowPrice;
   this.name = result.shopInfo.name;
-};exports.addCartInfo = addCartInfo;
+};
+
+
+
+// 设置浏览记录
+exports.addCartInfo = addCartInfo;var historyRecord =
+function historyRecord(result) {_classCallCheck(this, historyRecord);
+  this.image = result.itemInfo.topImages[0];
+  this.price = result.itemInfo.price;
+  this.title = result.itemInfo.title;
+  this.iid = result.itemInfo.iid;
+};exports.historyRecord = historyRecord;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
@@ -7402,7 +7379,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7423,14 +7400,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7506,7 +7483,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7901,6 +7878,162 @@ internalMixin(Vue);
 
 /***/ }),
 
+/***/ 226:
+/*!***************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/common/utils.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatDate = formatDate;function formatDate(date, fmt) {
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  var o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds() };
+
+  for (var k in o) {
+    if (new RegExp("(".concat(k, ")")).test(fmt)) {
+      var str = o[k] + '';
+      fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? str : padLeftZero(str));
+    }
+  }
+  return fmt;
+};
+
+function padLeftZero(str) {
+  return ('00' + str).substr(str.length);
+};
+
+/***/ }),
+
+/***/ 28:
+/*!***************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/sort.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.getSortList = getSortList;exports.getMinWallKeyData = getMinWallKeyData;exports.getmaitKeyData = getmaitKeyData;function getSortList() {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'http://152.136.185.210:7878/api/m5/category',
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data.data.category.list);
+        }
+      } });
+
+  });
+}
+
+function getMinWallKeyData(miniWallkey) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'http://152.136.185.210:7878/api/m5/subcategory/detail?miniWallkey=' + miniWallkey,
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        }
+      } });
+
+  });
+}
+
+function getmaitKeyData(maitKey) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'http://152.136.185.210:7878/api/m5/subcategory?maitKey=' + maitKey,
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data.data.list);
+        }
+      } });
+
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 290:
+/*!****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/actions.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  addOneCloth: function addOneCloth(context, payload) {
+    return new Promise(function (resolve, reject) {
+      var isExist = context.state.cartList.find(function (item) {return item.iid == payload.iid;});
+      if (isExist) {
+        isExist.count += 1;
+        resolve("该商品数量加1");
+      } else {
+        payload.count = 1;
+        context.commit("addOneCloth", payload);
+        resolve("新增该商品");
+      }
+    });
+  },
+
+  clearHistory: function clearHistory(context, payload) {
+    return new Promise(function (resolve, reject) {
+      context.commit('clearHistory');
+      resolve("浏览记录已清空!");
+    });
+  } };exports.default = _default;
+
+/***/ }),
+
+/***/ 291:
+/*!****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/getters.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  historyRecordLength: function historyRecordLength(state) {
+    return state.historyRecord.length;
+  } };exports.default = _default;
+
+/***/ }),
+
+/***/ 292:
+/*!*****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/mutation.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  addOneCloth: function addOneCloth(state, payload) {
+    state.cartList.push(payload);
+  },
+  addHistoryRecord: function addHistoryRecord(state, payload) {
+    var product = state.historyRecord.find(function (item) {
+      return item.iid == payload.iid;
+    });
+    if (product) return;
+    state.historyRecord.push(payload);
+  },
+  clearHistory: function clearHistory(state) {
+    state.historyRecord = [];
+  } };exports.default = _default;
+
+/***/ }),
+
 /***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -7952,37 +8085,22 @@ module.exports = g;
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 9));
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 
+var _actions = _interopRequireDefault(__webpack_require__(/*! ./actions.js */ 290));
+var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 291));
+var _mutation = _interopRequireDefault(__webpack_require__(/*! ./mutation.js */ 292));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_vuex.default);
 
+var state = {
+  cartList: [],
+  historyRecord: [] };
+
 var store = new _vuex.default.Store({
-  state: {
-    cartList: [] },
-
-  mutations: {
-    addOneCloth: function addOneCloth(state, payload) {
-      state.cartList.push(payload);
-    } },
-
-  actions: {
-    addOneCloth: function addOneCloth(context, payload) {
-      return new Promise(function (resolve, reject) {
-        var isExist = context.state.cartList.find(function (item) {return item.iid == payload.iid;});
-        if (isExist) {
-          isExist.count += 1;
-          resolve("该商品数量加1");
-        } else {
-          payload.count = 1;
-          context.commit("addOneCloth", payload);
-          resolve("新增该商品");
-        }
-      });
-    } },
-
-  getters: {} });var _default =
-
-
+  state: state,
+  mutations: _mutation.default,
+  actions: _actions.default,
+  getters: _getters.default });var _default =
 
 
 store;exports.default = _default;

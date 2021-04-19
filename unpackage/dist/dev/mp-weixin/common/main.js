@@ -14,6 +14,9 @@ _vue.default.config.productionTip = false;
 
 _App.default.mpType = 'app';
 
+// 这里注册一个总线
+_vue.default.prototype.$bus = new _vue.default();
+
 var app = new _vue.default(_objectSpread({},
 _App.default));
 

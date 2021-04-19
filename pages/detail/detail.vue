@@ -68,7 +68,7 @@
 	
 	// 这里是导入js文件
 	import {requestByiid,clothInfomation,shopInfomation,
-	detailImage,clothParams,assessItem,recommend,addCartInfo} from "../../network/index.js"; 
+	detailImage,clothParams,assessItem,recommend,addCartInfo,historyRecord} from "../../network/index.js"; 
 	export default {
 		name:"detail",
 		data() {
@@ -85,6 +85,8 @@
 				cartItem:{},//保存添加购物车所需要的信息
 				toastSomeThings:"",
 				toastShow:false,
+				// 下面设置浏览记录的选项
+				historyRecord:{},
 			}
 		},
 		components:{
@@ -121,16 +123,15 @@
 				this.clothes = new clothInfomation(result);
 				this.shopInfoma = new shopInfomation(result);
 				this.detailimg = new detailImage(result).image;
-				// console.log(result.itemParams)
 				this.paramsInfo = new clothParams(result.itemParams);
 				this.assessInfo = new assessItem(result.rate);
-				// console.log(this.assessInfo);
 				this.cartItem = new addCartInfo(result);
-				// console.log(this.addCart);
+				this.historyRecord = new historyRecord(result);
+			}).then(()=>{
+				this.$store.commit("addHistoryRecord",this.historyRecord);
 			})
 			recommend().then(value=>{
 				this.recommendList = value.data.list;
-				console.log(this.recommendList);
 			},error=>{
 				console.log("失败")
 			})

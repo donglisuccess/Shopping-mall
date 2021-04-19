@@ -1,0 +1,26 @@
+
+.left.data-v-fb81a576{
+	margin-top: 10rpx;
+}
+.left image.data-v-fb81a576{ 
+	width: 60rpx; 
+	height: 60rpx;
+}
+.center.data-v-fb81a576{
+	height: 80rpx;
+	text-align: center;
+	border-radius: 40rpx;
+	line-height: 80rpx;
+}
+.center image.data-v-fb81a576{
+	width: 60rpx; 
+	height: 60rpx;
+	margin-left: 10rpx;
+}
+.right.data-v-fb81a576{
+	width: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+
