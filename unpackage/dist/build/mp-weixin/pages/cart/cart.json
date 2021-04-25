@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "product-item": "/pages/cart/childComponent/productItem",
+    "tab-bar": "/components/tabBar",
+    "price-all": "/pages/cart/childComponent/priceAll"
+  }
+}

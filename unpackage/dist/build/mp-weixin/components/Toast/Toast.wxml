@@ -1,0 +1,1 @@
+<view hidden="{{!(toastShow)}}" class="content data-v-5ddf180a">{{''+toastSomeThings+''}}</view>

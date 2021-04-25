@@ -5,7 +5,7 @@
 				<image src="../../../static/fanhui.png" mode=""></image>
 			</view>
 			<view class="center" slot="center">
-				浏览记录
+				商品浏览记录
 			</view>
 			<view class="right" slot="right" @click="clearHistory">
 				清空

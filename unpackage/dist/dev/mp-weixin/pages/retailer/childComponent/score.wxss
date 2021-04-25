@@ -1,0 +1,79 @@
+
+.shopDetailInfo.data-v-9a3c4a4c{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 30rpx;
+	padding: 0rpx 20rpx;
+}
+.left.data-v-9a3c4a4c{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: space-evenly;
+	-webkit-justify-content: space-evenly;
+	        justify-content: space-evenly;
+	text-align: center;
+	color: #808080;
+	border-right: 2px solid #cecece;
+	margin-top: 20rpx;
+}
+.shopNumber.data-v-9a3c4a4c{
+	margin-bottom: 30rpx;
+}
+.right.data-v-9a3c4a4c{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.right-item.data-v-9a3c4a4c{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-bottom: 10rpx;
+	margin-top: 10rpx;
+	color: #808080;
+}
+.right-item.data-v-9a3c4a4c :nth-child(1){
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	        flex: 2;
+	padding-left: 20rpx;
+}
+.right-item.data-v-9a3c4a4c :nth-child(2){
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	text-align: center;
+	margin-right: 10rpx;
+}
+.right-item.data-v-9a3c4a4c :nth-child(3){
+	text-align: right;
+}
+.scoreTextOne.data-v-9a3c4a4c{
+	background-color: #4CD964;
+}
+.scoreText.data-v-9a3c4a4c{
+	color: white;
+}
+.scoreTextTwo.data-v-9a3c4a4c{
+	background-color: red;
+}
+.scorItem.data-v-9a3c4a4c{
+	color: #4CD964;
+}
+.entryShop.data-v-9a3c4a4c{
+	width: 400rpx;
+	height: 100rpx;
+	background-color: #C0C0C0;
+	margin: 80rpx auto;
+	text-align: center;
+	line-height: 100rpx;
+	font-size: 18px;
+	color: #555555;
+	border-radius: 15rpx;
+}
+

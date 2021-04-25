@@ -5,7 +5,7 @@
 				{{item.key}}
 			</view>
 			<view class="detail-image" v-for="(it,index) in item.list">
-				<image :src="it" mode="aspectFill"></image>
+				<image :src="it" mode="aspectFill" @load="imageLoadFinish"></image>
 			</view>
 		</view>
 	</view>
@@ -16,7 +16,7 @@
 		name:"detailImg",
 		data(){
 			return {
-				
+				count:0,
 			}
 		},
 		props:{
@@ -26,6 +26,17 @@
 					return [];
 				}
 			}
+		},
+		methods:{
+			imageLoadFinish(){
+				// console.log(this.detailimg[0].list.length);
+				if(++this.count == this.detailimg[0].list.length){
+					this.$emit("imageLoadFinish");
+				}
+			}
+		},
+		mounted(){
+			
 		}
 	}
 </script>

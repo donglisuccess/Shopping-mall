@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "top-head": "/pages/self/childComponents/topHead",
+    "serve": "/pages/self/childComponents/serve",
+    "blue-text": "/pages/self/childComponents/blueText",
+    "record": "/pages/self/childComponents/record",
+    "case-infomation": "/pages/self/childComponents/caseInfomation",
+    "login-way": "/pages/self/childComponents/loginWay"
+  }
+}

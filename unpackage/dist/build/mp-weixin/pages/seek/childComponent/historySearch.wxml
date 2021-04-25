@@ -1,0 +1,1 @@
+<view class="historySearchList data-v-32f4b496"><block wx:for="{{historysearch}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="historySearchItem data-v-32f4b496">{{''+item+''}}</view></block></view>

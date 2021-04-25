@@ -19,10 +19,10 @@
 	width: 100upx;
 	height: 100upx;
 	position: fixed;
-	bottom: 200upx;
+	bottom: 100upx;
 	right: 30upx;
 	z-index: 10;
-	background-color: #ffed90;
+	background-color: white;
 	border-radius: 50%;
 }
 .backTop image{

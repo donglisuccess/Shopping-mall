@@ -1,0 +1,18 @@
+
+.tab-bar.data-v-2380e8ba{
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.tab-bar image.data-v-2380e8ba{
+	width: 60rpx;
+	height: 60rpx;
+	padding-top: 10rpx;
+}
+.center.data-v-2380e8ba{
+	text-align: center;
+}
+.historyList.data-v-2380e8ba{
+	margin-top: 150rpx;
+}
+

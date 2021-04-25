@@ -1,0 +1,16 @@
+
+.content.data-v-0b1716ba{
+	padding: 0rpx 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.item.data-v-0b1716ba{
+	width: 355rpx;
+	font-size: 13px;
+	color: #808080;
+	margin: 20rpx 0rpx 20rpx 0rpx;
+}
+

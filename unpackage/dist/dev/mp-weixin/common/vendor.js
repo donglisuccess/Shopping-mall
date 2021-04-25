@@ -1567,7 +1567,146 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
+/***/ 10:
+/*!****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/actions.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  addOneCloth: function addOneCloth(context, payload) {
+    return new Promise(function (resolve, reject) {
+      var isExist = context.state.cartList.find(function (item) {return item.iid == payload.iid;});
+      if (isExist) {
+        isExist.count += 1;
+        resolve("该商品数量加1");
+      } else {
+        payload.count = 1;
+        context.commit("addOneCloth", payload);
+        resolve("新增该商品");
+      }
+    });
+  },
+
+  clearHistory: function clearHistory(context, payload) {
+    return new Promise(function (resolve, reject) {
+      context.commit('clearHistory');
+      resolve("浏览记录已清空!");
+    });
+  },
+  addSaveGoods: function addSaveGoods(context, payload) {
+    return new Promise(function (resolve, reject) {
+      var product = context.state.saveGoods.find(function (item) {return item.iid == payload.iid;});
+      if (product) {
+        resolve("已经收藏过该商品");
+      } else {
+        payload.price = "￥" + payload.price;
+        context.commit('addSaveGoods', payload);
+        resolve("收藏该商品");
+      }
+    });
+  },
+  findStore: function findStore(context, payload) {
+    return new Promise(function (resolve, reject) {
+      var storeInfo = context.state.enterStore.find(function (item) {return item[2].shopId == payload;});
+      resolve(storeInfo);
+      // console.log(storeInfo);
+    });
+  },
+  toggleConcern: function toggleConcern(context, payload) {
+    return new Promise(function (resolve, reject) {
+      var storeItem = context.state.enterStore.find(function (item) {return item[2].shopId == payload;});
+      storeItem[2].isConcern = !storeItem[2].isConcern;
+      if (storeItem[2].isConcern) {
+        resolve("关注成功");
+      } else {
+        resolve("取消关注");
+      }
+    });
+  },
+  getConcornShop: function getConcornShop(context) {
+    return new Promise(function (resolve, reject) {
+      var storeConcornAll = [];
+      var enterStore = context.state.enterStore;
+      for (var i = 0; i < enterStore.length; i++) {
+        if (enterStore[i][2].isConcern) {
+          storeConcornAll.push(enterStore[i]);
+        }
+      }
+      resolve(storeConcornAll);
+    });
+  },
+  getCareShopLength: function getCareShopLength(context) {
+    return new Promise(function (resolve, reject) {
+      var count = 0;
+      var enterStore = context.state.enterStore;
+      for (var i = 0; i < enterStore.length; i++) {
+        if (enterStore[i][2].isConcern) {
+          count += 1;
+        }
+      }
+      resolve(count);
+    });
+  },
+  getshopLookAllList: function getshopLookAllList(context) {
+    return new Promise(function (resolve, reject) {
+      var length = context.state.enterStore.length;
+      resolve(length);
+    });
+  } };exports.default = _default;
+
+/***/ }),
+
+/***/ 11:
+/*!****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/getters.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  historyRecordLength: function historyRecordLength(state) {
+    return state.historyRecord.length;
+  } };exports.default = _default;
+
+/***/ }),
+
 /***/ 12:
+/*!*****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/mutation.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  addOneCloth: function addOneCloth(state, payload) {
+    state.cartList.push(payload);
+  },
+  addHistoryRecord: function addHistoryRecord(state, payload) {
+    var product = state.historyRecord.find(function (item) {
+      return item.iid == payload.iid;
+    });
+    if (product) return;
+    state.historyRecord.push(payload);
+  },
+  clearHistory: function clearHistory(state) {
+    state.historyRecord = [];
+  },
+  addSaveGoods: function addSaveGoods(state, payload) {
+    state.saveGoods.push(payload);
+  },
+  enterStore: function enterStore(state, payload) {
+    payload[2].isConcern = false;
+    state.enterStore.push(payload);
+  } };exports.default = _default;
+
+/***/ }),
+
+/***/ 15:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -1693,159 +1832,6 @@ function normalizeComponent (
   }
 }
 
-
-/***/ }),
-
-/***/ 19:
-/*!****************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/index.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.swipper = swipper;exports.showImage = showImage;exports.requestByiid = requestByiid;exports.recommend = recommend;exports.historyRecord = exports.addCartInfo = exports.assessItem = exports.clothParams = exports.detailImage = exports.shopInfomation = exports.clothInfomation = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}} // 这里是用来发送请求的文件
-function swipper() {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: 'http://123.207.32.32:8000/home/multidata',
-      success: function success(res) {
-        if (res.statusCode == "200") {
-          resolve(res);
-        }
-      } });
-
-  }, function (reject) {
-    reject("数据查询失败");
-  });
-}
-
-// 请求首页的展示图片的数据
-function showImage(type, page) {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: "http://152.136.185.210:7878/api/m5/home/data",
-      data: {
-        type: type,
-        page: page },
-
-      success: function success(res) {
-        if (res.statusCode == 200) {
-          resolve(res.data);
-        }
-      } });
-
-  }, function (error) {
-    console.log("查询数据失败");
-  });
-}
-
-// 根据每一个iid请求数据
-function requestByiid(iid) {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: "http://152.136.185.210:7878/api/m5/detail",
-      data: {
-        iid: iid },
-
-      success: function success(res) {
-        if (res.statusCode == 200) {
-          resolve(res.data);
-        }
-      } });
-
-  }, function (error) {
-    reject("请求数据失败");
-  });
-}
-
-// 这里请求detail页面中的衣服描述数据
-var clothInfomation =
-function clothInfomation(result) {_classCallCheck(this, clothInfomation);
-  this.title = result.itemInfo.title;
-  this.price = result.itemInfo.price;
-  this.prePrice = result.itemInfo.oldPrice;
-  this.discountDesc = result.itemInfo.discountDesc;
-  this.columns = result.columns;
-  this.services = result.shopInfo.services;
-};
-
-
-// 这里获取detail店铺中的数据
-exports.clothInfomation = clothInfomation;var shopInfomation =
-function shopInfomation(result) {_classCallCheck(this, shopInfomation);
-  this.shopLogo = result.shopInfo.shopLogo;
-  this.name = result.shopInfo.name;
-  this.shopUrl = result.shopInfo.shopUrl;
-  this.cGoods = result.shopInfo.cGoods;
-  this.cSells = result.shopInfo.cSells;
-  this.score = result.shopInfo.score;
-};
-
-
-// 这里获取detailImage
-exports.shopInfomation = shopInfomation;var detailImage =
-function detailImage(result) {_classCallCheck(this, detailImage);
-  this.image = result.detailInfo.detailImage;
-};
-
-
-// 这里设置相关参数
-exports.detailImage = detailImage;var clothParams =
-function clothParams(params) {_classCallCheck(this, clothParams);
-  this.set = params.info.set;
-  this.tables = params.rule.tables;
-};
-
-
-// 这里设置评价信息
-exports.clothParams = clothParams;var assessItem =
-function assessItem(rate) {_classCallCheck(this, assessItem);
-  this.avatar = rate.list[0].user.avatar;
-  this.uname = rate.list[0].user.uname;
-  this.content = rate.list[0].content;
-  this.created = rate.list[0].created;
-  this.style = rate.list[0].style;
-  this.images = rate.list[0].images;
-};
-
-
-
-// 导出推荐数据
-exports.assessItem = assessItem;function recommend() {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: "http://152.136.185.210:7878/api/m5/recommend",
-      success: function success(res) {
-        if (res.statusCode == 200) {
-          resolve(res.data);
-        }
-      } });
-
-  });
-}
-
-// 这里导出的是需要添加到加入购物车的信息
-var addCartInfo =
-function addCartInfo(result) {_classCallCheck(this, addCartInfo);
-  this.image = result.itemInfo.topImages[0];
-  this.iid = result.itemInfo.iid;
-  this.title = result.itemInfo.title;
-  this.price = result.itemInfo.lowNowPrice;
-  this.name = result.shopInfo.name;
-};
-
-
-
-// 设置浏览记录
-exports.addCartInfo = addCartInfo;var historyRecord =
-function historyRecord(result) {_classCallCheck(this, historyRecord);
-  this.image = result.itemInfo.topImages[0];
-  this.price = result.itemInfo.price;
-  this.title = result.itemInfo.title;
-  this.iid = result.itemInfo.iid;
-};exports.historyRecord = historyRecord;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -7878,41 +7864,191 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 226:
-/*!***************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/common/utils.js ***!
-  \***************************************************************/
+/***/ 22:
+/*!****************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/index.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.formatDate = formatDate;function formatDate(date, fmt) {
-  if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-  }
-  var o = {
-    'M+': date.getMonth() + 1,
-    'd+': date.getDate(),
-    'h+': date.getHours(),
-    'm+': date.getMinutes(),
-    's+': date.getSeconds() };
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.swipper = swipper;exports.showImage = showImage;exports.requestByiid = requestByiid;exports.recommend = recommend;exports.historyRecord = exports.addCartInfo = exports.assessItem = exports.clothParams = exports.detailImage = exports.shopInfomation = exports.clothInfomation = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}} // 这里是用来发送请求的文件
+function swipper() {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'http://123.207.32.32:8000/home/multidata',
+      success: function success(res) {
+        if (res.statusCode == "200") {
+          resolve(res);
+        }
+      } });
 
-  for (var k in o) {
-    if (new RegExp("(".concat(k, ")")).test(fmt)) {
-      var str = o[k] + '';
-      fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? str : padLeftZero(str));
-    }
-  }
-  return fmt;
+  }, function (reject) {
+    reject("数据查询失败");
+  });
+}
+
+// 请求首页的展示图片的数据
+function showImage(type, page) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: "http://152.136.185.210:7878/api/m5/home/data",
+      data: {
+        type: type,
+        page: page },
+
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        }
+      } });
+
+  }, function (error) {
+    console.log("查询数据失败");
+  });
+}
+
+// 根据每一个iid请求数据
+function requestByiid(iid) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: "http://152.136.185.210:7878/api/m5/detail",
+      data: {
+        iid: iid },
+
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        }
+      } });
+
+  }, function (error) {
+    reject("请求数据失败");
+  });
+}
+
+// 这里请求detail页面中的衣服描述数据
+var clothInfomation =
+function clothInfomation(result) {_classCallCheck(this, clothInfomation);
+  this.title = result.itemInfo.title;
+  this.price = result.itemInfo.price;
+  this.prePrice = result.itemInfo.oldPrice;
+  this.discountDesc = result.itemInfo.discountDesc;
+  this.columns = result.columns;
+  this.services = result.shopInfo.services;
 };
 
-function padLeftZero(str) {
-  return ('00' + str).substr(str.length);
+
+// 这里获取detail店铺中的数据
+exports.clothInfomation = clothInfomation;var shopInfomation =
+function shopInfomation(result) {_classCallCheck(this, shopInfomation);
+  this.shopLogo = result.shopInfo.shopLogo;
+  this.name = result.shopInfo.name;
+  this.shopUrl = result.shopInfo.shopUrl;
+  this.cGoods = result.shopInfo.cGoods;
+  this.cSells = result.shopInfo.cSells;
+  this.score = result.shopInfo.score;
 };
+
+
+// 这里获取detailImage
+exports.shopInfomation = shopInfomation;var detailImage =
+function detailImage(result) {_classCallCheck(this, detailImage);
+  this.image = result.detailInfo.detailImage;
+};
+
+
+// 这里设置相关参数
+exports.detailImage = detailImage;var clothParams =
+function clothParams(params) {_classCallCheck(this, clothParams);
+  this.set = params.info.set;
+  this.tables = params.rule.tables;
+};
+
+
+// 这里设置评价信息
+exports.clothParams = clothParams;var assessItem =
+function assessItem(rate) {_classCallCheck(this, assessItem);
+  this.avatar = rate.list ? rate.list[0].user.avatar : " ";
+  this.uname = rate.list ? rate.list[0].user.uname : " ";
+  this.content = rate.list ? rate.list[0].content : " ";
+  this.created = rate.list ? rate.list[0].created : " ";
+  this.style = rate.list ? rate.list[0].style : " ";
+  this.images = rate.list ? rate.list[0].images : " ";
+};
+
+
+
+// 导出推荐数据
+exports.assessItem = assessItem;function recommend() {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: "http://152.136.185.210:7878/api/m5/recommend",
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        }
+      } });
+
+  });
+}
+
+// 这里导出的是需要添加到加入购物车的信息
+var addCartInfo =
+function addCartInfo(result) {_classCallCheck(this, addCartInfo);
+  this.image = result.itemInfo.topImages[0];
+  this.iid = result.itemInfo.iid;
+  this.title = result.itemInfo.title;
+  this.price = result.itemInfo.lowNowPrice;
+  this.name = result.shopInfo.name;
+};
+
+
+
+// 设置浏览记录
+exports.addCartInfo = addCartInfo;var historyRecord =
+function historyRecord(result) {_classCallCheck(this, historyRecord);
+  this.image = result.itemInfo.topImages[0];
+  this.price = result.itemInfo.price;
+  this.title = result.itemInfo.title;
+  this.iid = result.itemInfo.iid;
+};exports.historyRecord = historyRecord;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
-/***/ 28:
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 31:
 /*!***************************************************************!*\
   !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/sort.js ***!
   \***************************************************************/
@@ -7962,109 +8098,6 @@ function getmaitKeyData(maitKey) {
 
 /***/ }),
 
-/***/ 290:
-/*!****************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/actions.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  addOneCloth: function addOneCloth(context, payload) {
-    return new Promise(function (resolve, reject) {
-      var isExist = context.state.cartList.find(function (item) {return item.iid == payload.iid;});
-      if (isExist) {
-        isExist.count += 1;
-        resolve("该商品数量加1");
-      } else {
-        payload.count = 1;
-        context.commit("addOneCloth", payload);
-        resolve("新增该商品");
-      }
-    });
-  },
-
-  clearHistory: function clearHistory(context, payload) {
-    return new Promise(function (resolve, reject) {
-      context.commit('clearHistory');
-      resolve("浏览记录已清空!");
-    });
-  } };exports.default = _default;
-
-/***/ }),
-
-/***/ 291:
-/*!****************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/getters.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  historyRecordLength: function historyRecordLength(state) {
-    return state.historyRecord.length;
-  } };exports.default = _default;
-
-/***/ }),
-
-/***/ 292:
-/*!*****************************************************************!*\
-  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/store/mutation.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  addOneCloth: function addOneCloth(state, payload) {
-    state.cartList.push(payload);
-  },
-  addHistoryRecord: function addHistoryRecord(state, payload) {
-    var product = state.historyRecord.find(function (item) {
-      return item.iid == payload.iid;
-    });
-    if (product) return;
-    state.historyRecord.push(payload);
-  },
-  clearHistory: function clearHistory(state) {
-    state.historyRecord = [];
-  } };exports.default = _default;
-
-/***/ }),
-
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
 /***/ 4:
 /*!**********************************************************!*\
   !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/pages.json ***!
@@ -8073,6 +8106,94 @@ module.exports = g;
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ 64:
+/*!***************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/common/utils.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formatDate = formatDate;exports.debound = debound;function formatDate(date, fmt) {
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  var o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds() };
+
+  for (var k in o) {
+    if (new RegExp("(".concat(k, ")")).test(fmt)) {
+      var str = o[k] + '';
+      fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? str : padLeftZero(str));
+    }
+  }
+  return fmt;
+};
+
+function padLeftZero(str) {
+  return ('00' + str).substr(str.length);
+};
+
+
+
+// 设置防抖函数
+function debound(func, wait, imme) {
+  var timeout, result;
+  var debounded = function debounded() {
+    var context = this;
+    var args = arguments;
+    clearTimeout(timeout);
+    if (imme) {
+      var now = !timeout;
+      timeout = setTimeout(function () {
+        timeout = null;
+      }, wait);
+      if (now) result = func.apply(context, args);
+    } else {
+      timeout = setTimeout(function () {
+        result = func.apply(context, args);
+      }, wait);
+    }
+    return result;
+  };
+  debounded.cancel = function () {
+    clearTimeout(timeout);
+    timeout = null;
+  };
+  return debounded;
+}
+
+/***/ }),
+
+/***/ 65:
+/*!***************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/common/mixin.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.imageload = void 0;var _utils = __webpack_require__(/*! ./utils.js */ 64);
+
+var imageload = {
+  data: function data() {
+    return {
+      refresh: null };
+
+  },
+  mounted: function mounted() {var _this = this;
+    this.refresh = (0, _utils.debound)(function () {console.log("hhh");}, 30, false);
+    this.$bus.$on("imageLoadFinish", function () {
+      _this.refresh();
+    });
+  } };exports.imageload = imageload;
 
 /***/ }),
 
@@ -8087,14 +8208,16 @@ module.exports = g;
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 9));
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 
-var _actions = _interopRequireDefault(__webpack_require__(/*! ./actions.js */ 290));
-var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 291));
-var _mutation = _interopRequireDefault(__webpack_require__(/*! ./mutation.js */ 292));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _actions = _interopRequireDefault(__webpack_require__(/*! ./actions.js */ 10));
+var _getters = _interopRequireDefault(__webpack_require__(/*! ./getters.js */ 11));
+var _mutation = _interopRequireDefault(__webpack_require__(/*! ./mutation.js */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_vuex.default);
 
 var state = {
   cartList: [],
-  historyRecord: [] };
+  historyRecord: [],
+  saveGoods: [],
+  enterStore: [] };
 
 var store = new _vuex.default.Store({
   state: state,
@@ -9055,6 +9178,33 @@ var index_esm = {
 
 /* harmony default export */ __webpack_exports__["default"] = (index_esm);
 
+
+/***/ }),
+
+/***/ 98:
+/*!*******************************************************************!*\
+  !*** D:/web前端开发/uni-app/IOT里程碑/Shopping-mall/network/retailer.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.praiseScore = exports.shopName = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}} // 这里是店铺的信息
+var shopName =
+function shopName(shopInfo) {_classCallCheck(this, shopName);
+  this.logo = shopInfo.shopLogo;
+  this.name = shopInfo.name;
+  this.fans = shopInfo.cFans;
+  this.goods = shopInfo.cGoods;
+};exports.shopName = shopName;var
+
+
+praiseScore =
+function praiseScore(shopInfo) {_classCallCheck(this, praiseScore);
+  this.score = shopInfo.score;
+  this.goods = shopInfo.cGoods;
+  this.sells = shopInfo.cSells;
+};exports.praiseScore = praiseScore;
 
 /***/ })
 

@@ -1,0 +1,1 @@
+<view class="recommendItem data-v-d164da9e" recomimglist="{{recomimglist}}"><image src="{{recomimglist.image}}" mode class="data-v-d164da9e"></image><view class="recommendItem-text data-v-d164da9e">{{''+recomimglist.title+''}}</view></view>

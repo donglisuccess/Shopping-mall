@@ -31,4 +31,7 @@
 }
 .toggleSpe.data-v-57280228{
 }
+.isShow.data-v-57280228{
+	display: none;
+}
 

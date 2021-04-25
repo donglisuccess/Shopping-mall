@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view>
-			<image :src="showImage" mode="aspectFit"></image>
+			<image :src="showImage" mode="aspectFill"></image>
 			<view class="goodsTitle">
 				{{sendImagedata.title}}
 			</view>
@@ -47,6 +47,9 @@
 					return this.sendImagedata.img;
 				}
 			}
+		},
+		methods:{
+			
 		}
 	}
 </script>
@@ -54,7 +57,7 @@
 <style scoped>
 .content{
 	width: 350upx;
-	padding-bottom: 30upx;
+	padding-bottom: 10upx;
 	background-color: white !important;
 }
 .content image{

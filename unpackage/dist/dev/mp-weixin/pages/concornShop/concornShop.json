@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "tab-bar": "/components/tabBar",
+    "concorn-shop-item": "/pages/concornShop/childComponents/concornShopItem"
+  }
+}

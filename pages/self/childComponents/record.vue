@@ -1,27 +1,27 @@
 <template>
 	<view class="content">
-		<view class="goodsSave">
+		<view class="goodsSave" @click="goodsSaveShow">
 			<view class="number">
-				0
+				{{goodsSaveLength}}
 			</view>
 			<view class="">
 				商品收藏
 			</view>
 		</view>
-		<view class="shopfollow">
+		<view class="shopfollow" @click="concornShop">
 			<view class="number">
-				0
+				{{shopConcornLength}}
 			</view>
 			<view class="">
 				店铺关注
 			</view>
 		</view>
-		<view class="loveThings">
+		<view class="loveThings" @click="shopHistory">
 			<view class="number">
-				0
+				{{shopLookAllList}}
 			</view>
 			<view class="">
-				喜欢内容
+				店铺浏览
 			</view>
 		</view>
 		<view class="browse" @click="enterbrowse">
@@ -29,7 +29,7 @@
 				{{historyItemLength}}
 			</view>
 			<view class="">
-				浏览记录
+				商品浏览
 			</view>
 		</view>
 	</view>
@@ -46,10 +46,31 @@
 		methods:{
 			enterbrowse(){
 				this.$emit("enterbrowse");
+			},
+			goodsSaveShow(){
+				this.$emit("goodsSaveShow");
+			},
+			concornShop(){
+				this.$emit("concornShop");
+			},
+			shopHistory(){
+				this.$emit("shopHistory");
 			}
 		},
 		props:{
 			historyItemLength:{
+				type:Number,
+				default:0,
+			},
+			goodsSaveLength:{
+				type:Number,
+				default:0,
+			},
+			shopConcornLength:{
+				type:Number,
+				default:0,
+			},
+			shopLookAllList:{
 				type:Number,
 				default:0,
 			}

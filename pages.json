@@ -11,13 +11,14 @@
 		{
 			"path": "pages/sort/sort",
 			"style": {
-				"navigationStyle":"custom"
+				"navigationStyle":"custom",
+				"onReachBottomDistance":50
 			}
 		},
 		{
 			"path": "pages/search/search",
 			"style": {
-				"navigationBarTitleText": "发现"
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -41,6 +42,36 @@
         }
         ,{
             "path" : "pages/accessRecord/accessRecord",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/seek/seek",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/saveGoods/saveGoods",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/retailer/retailer",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/concornShop/concornShop",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/shopHistory/shopHistory",
             "style" : {
 				"navigationStyle":"custom"
 			}

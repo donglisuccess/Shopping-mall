@@ -17,15 +17,13 @@
 	z-index: 1;
 }
 .left{
-	width: 150rpx;
+	width: 120rpx;
 	text-align: center;
 }
 .center{
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	        flex: 1;
+	width : 510rpx;
 }
 .right{
-	width: 150rpx;
+	width: 120rpx;
 }
 

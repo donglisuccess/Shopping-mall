@@ -37,13 +37,13 @@
 	z-index: 1;
 }
 .left{
-	width: 150upx;
+	width: 120upx;
 	text-align: center;
 }
 .center{
-	flex: 1;
+	width : 510upx;
 }
 .right{
-	width: 150upx;
+	width: 120upx;
 }
 </style>

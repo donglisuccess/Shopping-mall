@@ -1,7 +1,7 @@
 <template>
 	<view class="">
 		<tab-bar>
-			<view class="left" slot="left">
+			<view class="left" slot="left" @click="backTo">
 				<image src="../../../static/fanhui.png" mode=""></image>
 			</view>
 			<view class="center" slot="center">
@@ -25,6 +25,11 @@
 		},
 		components:{
 			tabBar,
+		},
+		methods:{
+			backTo(){
+				this.$emit("backTo");
+			}
 		}
 	}
 </script>

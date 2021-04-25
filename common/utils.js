@@ -22,3 +22,32 @@ function padLeftZero (str) {
   return ('00' + str).substr(str.length);
 };
 
+
+
+// 设置防抖函数
+export function debound(func, wait, imme) {
+      let timeout,result;
+      let debounded = function () {
+        let context = this;
+        let args = arguments;
+        clearTimeout(timeout);
+        if (imme) {
+          let now = !timeout;
+          timeout = setTimeout(() => {
+            timeout = null;
+          }, wait);
+          if (now) result = func.apply(context, args);
+        } else {
+          timeout = setTimeout(function () {
+            result = func.apply(context, args);
+          }, wait);
+        }
+        return result;
+      }
+      debounded.cancel = function(){
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      return debounded;
+    }
+

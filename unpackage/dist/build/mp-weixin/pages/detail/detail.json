@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "详情页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "toast": "/components/Toast/Toast",
+    "tab-bar": "/components/tabBar",
+    "cloth-info": "/pages/detail/childComponents/clothInfo",
+    "shop-info": "/pages/detail/childComponents/shopInfo",
+    "detail-img": "/pages/detail/childComponents/detailImg",
+    "params": "/pages/detail/childComponents/params",
+    "assess": "/pages/detail/childComponents/assess",
+    "show-item": "/pages/index/childcomponents/showItem",
+    "add-cart": "/pages/detail/childComponents/addCart"
+  }
+}

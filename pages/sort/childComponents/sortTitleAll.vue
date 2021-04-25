@@ -63,6 +63,9 @@
 				this.currentIndex = index;
 				this.$emit("toggleDetailContent",index);
 			}
+		},
+		onReachBottom(){
+			console.log("hhhhhhhh")
 		}
 	}
 </script>

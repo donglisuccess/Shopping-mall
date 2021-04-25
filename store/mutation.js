@@ -11,5 +11,12 @@ export default{
 		},
 		clearHistory(state) {
 			state.historyRecord = [];
+		},
+		addSaveGoods(state,payload){
+			state.saveGoods.push(payload);
+		},
+		enterStore(state,payload){
+			payload[2].isConcern = false;
+			state.enterStore.push(payload);
 		}
 	}

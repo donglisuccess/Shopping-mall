@@ -1,0 +1,18 @@
+
+.historySearchList.data-v-12d0f19c{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.historySearchItem.data-v-12d0f19c{
+	padding: 5rpx 20rpx;
+	margin-top: 30rpx;
+	margin-right: 20rpx;
+	background-color: #EFEFEF;
+	border-radius: 20rpx;
+	font-size: 14px;
+	color: #555555;
+}
+

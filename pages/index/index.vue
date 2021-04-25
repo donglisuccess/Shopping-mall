@@ -25,6 +25,7 @@
 			<show-item v-for="(item,index) in nowData" :key="index" :sendImagedata="item" @click.native="clickTodetail(item)"></show-item>
 		</view>
 		<!-- 展示pop，sell,new，end -->
+		<back-top :class="{isShow:backShow}" @click.native="backToTop"></back-top>
 	</view>
 </template>
 
@@ -80,6 +81,20 @@
 			},
 			scrollPosition(e){
 				console.log(e);
+			},
+			backToTop(){
+				uni.pageScrollTo({
+				    duration:500, // 毫秒
+					scrollTop:0 // 位置
+				});
+			}
+		},
+		onPageScroll : function(e) { //nvue暂不支持滚动监听，可用bindingx代替
+		    // console.log("滚动距离为：" + e.scrollTop);
+			if(e.scrollTop > 1000){
+				this.backShow = false;
+			}else{
+				this.backShow = true;
 			}
 		},
 		onLoad(){
@@ -151,5 +166,8 @@
 }
 .toggleSpe{
 	
+}
+.isShow{
+	display: none;
 }
 </style>

@@ -42,6 +42,9 @@
 			enterDetail(){
 				this.$emit("enterDetail",this.item.iid);
 			}
+		},
+		computed:{
+			
 		}
 	}
 </script>

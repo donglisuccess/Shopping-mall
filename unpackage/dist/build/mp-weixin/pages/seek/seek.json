@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "tab-bar": "/components/tabBar",
+    "history-search": "/pages/seek/childComponent/historySearch",
+    "want-to-search": "/pages/seek/childComponent/wantToSearch"
+  }
+}

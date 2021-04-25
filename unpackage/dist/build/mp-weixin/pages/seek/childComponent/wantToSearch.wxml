@@ -1,0 +1,1 @@
+<view class="content data-v-73d355a8"><block wx:for="{{wantTosearch}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="item data-v-73d355a8">{{''+item+''}}</view></block></view>

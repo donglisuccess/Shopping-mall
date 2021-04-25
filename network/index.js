@@ -95,12 +95,12 @@ export class clothParams{
 // 这里设置评价信息
 export class assessItem{
 	constructor(rate) {
-	    this.avatar = rate.list[0].user.avatar;
-		this.uname = rate.list[0].user.uname;
-		this.content = rate.list[0].content;
-		this.created = rate.list[0].created;
-		this.style = rate.list[0].style;
-		this.images = rate.list[0].images;
+	    this.avatar = rate.list ? rate.list[0].user.avatar:" ";
+		this.uname = rate.list ? rate.list[0].user.uname :" ";
+		this.content = rate.list ? rate.list[0].content:" ";
+		this.created = rate.list ? rate.list[0].created : " ";
+		this.style = rate.list ? rate.list[0].style :" ";
+		this.images = rate.list ? rate.list[0].images:" ";
 	}
 }
 

@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<search-goods></search-goods>
+		<search-goods @backTo="backTo"></search-goods>
 		<sort-title-all :sortAll="sortAll" class="sortTitleAll" 
 		:maitKeyData ="maitKeyData" :minWallKeyData="minWallKeyData" @toggleDetailContent="toggleDetailContent"></sort-title-all>
 	</view>
@@ -53,6 +53,11 @@
 				});
 				getmaitKeyData(this.sortAll[index].maitKey).then(value=>{
 					this.maitKeyData = value;
+				})
+			},
+			backTo(){
+				uni.navigateBack({
+					delta:1
 				})
 			}
 		}

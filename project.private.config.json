@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "static/retailer/retailer",
+          "pathName": "static/retailer/retailer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "static/retailer/retailer",
+          "pathName": "static/retailer/retailer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "static/retailer/retailer",
+          "pathName": "static/retailer/retailer",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

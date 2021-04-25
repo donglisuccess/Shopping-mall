@@ -1,0 +1,49 @@
+
+.retailer-detail.data-v-361c36f4{
+	margin-top: 150rpx;
+}
+.swiper.data-v-361c36f4{
+	height: 700rpx;
+}
+.swiper image.data-v-361c36f4{
+	height: 700rpx;
+	width: 100%;
+}
+.scroll-view-box.data-v-361c36f4{
+	width: 100%;
+	white-space: nowrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.scroll-view-item.data-v-361c36f4{
+	margin:15rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	border: 1px solid #C0C0C0;
+	height: 100rpx;
+	border-radius: 20rpx;
+}
+.scroll-view-item.data-v-361c36f4 :nth-child(1){
+	background-color: #0ba2ff;
+	color: white;
+	/* padding: 20upx 30upx; */
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 20rpx 0rpx 0rpx 20rpx;
+	padding: 0rpx 20rpx;
+}
+.scroll-view-item.data-v-361c36f4 :nth-child(2){
+	background-color: white;
+	color: #007AFF;
+	padding: 10rpx 30rpx;
+	border-radius: 20rpx;
+}
+

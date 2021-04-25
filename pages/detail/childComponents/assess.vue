@@ -25,7 +25,7 @@
 				{{assessInfo.style}}
 			</view>
 		</view>
-		<view class="images">
+		<view class="images" v-if="assessInfo.images">
 			<view class="imageBox" v-for="(item,index) in assessInfo.images" :key="index">
 				<image :src="item" mode="aspectFill"></image>
 			</view>

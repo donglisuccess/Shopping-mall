@@ -3,7 +3,13 @@
 		<!-- 头部信息 start -->
 		<top-head :nickName="nickName" :avator="avatar" @login="login"></top-head> 
 		<!-- 头部信息 end -->
-		<record @enterbrowse="enterbrowse" :historyItemLength="historyItemLength"></record>
+		<record @enterbrowse="enterbrowse" 
+		:historyItemLength="historyItemLength" 
+		@goodsSaveShow="goodsSaveShow" 
+		:goodsSaveLength="goodsSaveLength" 
+		@concornShop="concornShop" 
+		:shopConcornLength="shopConcornLength" 
+		@shopHistory="shopHistory" :shopLookAllList="shopLookAllList"></record>
 		<blue-text></blue-text>
 		<!-- 代付款之类 -->
 		<case-infomation></case-infomation>
@@ -29,6 +35,9 @@
 				nickName:"未登录",
 				avatar:"../../../static/self/jingdong.png",
 				historyItemLength:0,
+				goodsSaveLength:0,
+				shopConcornLength:0,
+				shopLookAllList:0,
 			}
 		},
 		components:{
@@ -46,8 +55,15 @@
 				})
 			})
 		},
-		activated(){
-			 
+		onShow(){
+			this.historyItemLength = this.$store.state.historyRecord.length;
+			this.goodsSaveLength = this.$store.state.saveGoods.length;
+			this.$store.dispatch("getCareShopLength").then(value=>{
+				this.shopConcornLength = value;
+			});
+			this.$store.dispatch("getshopLookAllList").then(value=>{
+				this.shopLookAllList = value;
+			})
 		},
 		methods: {
 			
@@ -73,13 +89,22 @@
 				uni.navigateTo({
 					url:"../accessRecord/accessRecord"
 				})
+			},
+			goodsSaveShow(){
+				uni.navigateTo({
+					url:'../saveGoods/saveGoods',
+				})
+			},
+			concornShop(){
+				uni.navigateTo({
+					url:"../concornShop/concornShop",
+				})
+			},
+			shopHistory(){
+				uni.navigateTo({
+					url:"../shopHistory/shopHistory",
+				})
 			}
-			
-			
-		},
-		activated(){
-			this.historyItemLength = this.$store.getters.historyRecordLength;
-			console.log("hhhhhhhhhhhhhhhhs")
 		}
 	}
 </script>

@@ -7,13 +7,13 @@
 					客服
 				</view>
 			</view>
-			<view class="shop">
+			<view class="shop" @click="enterShop">
 				<image src="../../../static/addCart/dianpu.png" mode=""></image>
 				<view class="">
 					店铺
 				</view>
 			</view>
-			<view class="save">
+			<view class="save" @click="saveGoods">
 				<image src="../../../static/addCart/shoucang.png" mode=""></image>
 				<view class="">
 					收藏
@@ -44,6 +44,14 @@
 				this.$store.dispatch("addOneCloth",this.cartItem).then(value=>{
 					this.$emit("toastInfo",value);
 				})
+			},
+			saveGoods(){
+				this.$store.dispatch("addSaveGoods",this.cartItem).then(value=>{
+					this.$emit("toastInfo",value);
+				})
+			},
+			enterShop(){
+				this.$emit("enterShop")
 			}
 		},
 		props:{

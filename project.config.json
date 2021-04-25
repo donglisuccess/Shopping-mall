@@ -29,7 +29,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -42,7 +41,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.16.0",
   "appid": "wxd7f5015176ba547a",
-  "projectname": "miniprogram-1",
+  "projectname": "购物商城",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -53,6 +52,8 @@
   },
   "isGameTourist": false,
   "miniprogramRoot": "unpackage/dist/dev/mp-weixin/",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "list": []

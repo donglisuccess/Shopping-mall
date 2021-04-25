@@ -1,0 +1,30 @@
+
+.left.data-v-56146a08{
+	margin-top: 10rpx;
+}
+.left image.data-v-56146a08{ 
+	width: 60rpx; 
+	height: 60rpx;
+}
+.center.data-v-56146a08{
+	height: 80rpx;
+	text-align: center;
+	border-radius: 40rpx;
+	line-height: 80rpx;
+}
+.center image.data-v-56146a08{
+	width: 60rpx; 
+	height: 60rpx;
+	margin-left: 10rpx;
+}
+.right.data-v-56146a08{
+	width: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.concornList.data-v-56146a08{
+	margin-top: 150rpx;
+	padding: 0rpx 20rpx;
+}
+

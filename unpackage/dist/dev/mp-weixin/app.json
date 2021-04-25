@@ -6,7 +6,12 @@
     "pages/cart/cart",
     "pages/self/self",
     "pages/detail/detail",
-    "pages/accessRecord/accessRecord"
+    "pages/accessRecord/accessRecord",
+    "pages/seek/seek",
+    "pages/saveGoods/saveGoods",
+    "pages/retailer/retailer",
+    "pages/concornShop/concornShop",
+    "pages/shopHistory/shopHistory"
   ],
   "subPackages": [],
   "window": {
@@ -53,6 +58,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }
